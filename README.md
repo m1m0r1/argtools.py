@@ -77,3 +77,5 @@ Other features
 - command.run setups logging module internally and can control verbosity like -v, -vv, ..
 - command.run ignores SIGPIPE occured inside of wrapped function
 - It supports group or exclusive arguments by argument.group, argument.exclusive (documentation is #TODO)
+- Builtin options (-v, --verbose, --debug) can be turned off by setting command.add_verbose = False or command.add_debug = False
+...
