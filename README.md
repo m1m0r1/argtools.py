@@ -9,6 +9,11 @@ It helps to build a command line tool with *minimal effort*.
 Quick start
 -------------------
 
+### Installation
+```sh
+$ pip install argtools
+```
+
 ### Basic usage
 
 ```python
