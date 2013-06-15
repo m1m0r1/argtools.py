@@ -1,4 +1,4 @@
-argtools
+argtools.py
 ==========
 
 Description
