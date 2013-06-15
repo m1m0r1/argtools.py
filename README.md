@@ -1,8 +1,7 @@
 argtools
-
 ==========
 
-What's this?
+Description
 -------------------
 Just a wrapper of argparse (included as Python standard library for ver. >= 2.7).
 It helps to build a command line tool with minimal effort.
@@ -10,9 +9,10 @@ It helps to build a command line tool with minimal effort.
 Quick start
 -------------------
 
-Basic usage
+### Basic usage
 
 ```python
+# examples/test.py
 from argtools import command, argument
 
 @command
@@ -41,9 +41,10 @@ The argument function has same api as argparse.ArgumentParser.add_argument.
 (see http://docs.python.org/dev/library/argparse.html for detail.)
 
 
-Creating subcommand
+### Creating subcommand
 
 ```python
+# examples/sub.py
 from argtools import command, argument
 
 @command.add_sub
@@ -71,11 +72,11 @@ $ python test.py bar -h   # print help text of bar subcommand
 ```
 
 
-Other features
+Features
 -------------------
 
 - command.run setups logging module internally and can control verbosity like -v, -vv, ..
 - command.run ignores SIGPIPE occured inside of wrapped function
 - It supports group or exclusive arguments by argument.group, argument.exclusive (documentation is #TODO)
 - Builtin options (-v, --verbose, --debug) can be turned off by setting command.add_verbose = False or command.add_debug = False
-...
+
