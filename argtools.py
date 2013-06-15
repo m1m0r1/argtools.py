@@ -1,5 +1,9 @@
-#!/usr/bin/env python
 # -*- coding: utf-8 -*-
+""" A wrapper of argparse that helps to build command line tools with minimal effort.
+"""
+
+__author__ = "Takahiro Mimori <takahiro.mimori@gmail.com>"
+__all__ = ['command', 'argument', 'Command', 'Error']
 
 import os
 import sys
