@@ -41,7 +41,7 @@ The argument function has same api as argparse.ArgumentParser.add_argument.
 (see http://docs.python.org/dev/library/argparse.html for detail.)
 
 
-### Creating subcommand
+### Creating subcommands
 
 ```python
 # examples/sub.py
@@ -49,7 +49,7 @@ from argtools import command, argument
 
 @command.add_sub
 def foo(args):
-    """ This is bar
+    """ This is foo
     """
     print 'foo'
 
@@ -79,4 +79,3 @@ Features
 - command.run ignores SIGPIPE occured inside of wrapped function
 - It supports group or exclusive arguments by argument.group, argument.exclusive (documentation is #TODO)
 - Builtin options (-v, --verbose, --debug) can be turned off by setting command.add_verbose = False or command.add_debug = False
-
