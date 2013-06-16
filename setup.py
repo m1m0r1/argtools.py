@@ -5,7 +5,7 @@ from setuptools import setup, find_packages
 REQUIRES = ['argparse'] if sys.version_info < (2, 7) else []
 README = os.path.join(os.path.dirname(__file__), 'README.md')
 long_description = open(README).read() + '\n\n'
-VERSION = '0.1.0'
+VERSION = '0.1.1'
 
 setup(name='argtools',
       version=VERSION,
@@ -17,5 +17,7 @@ setup(name='argtools',
       keywords='argparse subcommand command cli',
       author='Takahiro Mimori',
       author_email='takahiro.mimori@gmail.com',
+      py_modules=['argtools'],
+      package_data = {'': ['README.md']},
       url='https://github.com/m1m0r1/argtools.py',
       )
