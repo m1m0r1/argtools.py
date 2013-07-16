@@ -5,7 +5,7 @@ from setuptools import setup, find_packages
 REQUIRES = ['argparse'] if sys.version_info < (2, 7) else []
 README = os.path.join(os.path.dirname(__file__), 'README.md')
 long_description = open(README).read() + '\n\n'
-VERSION = '0.1.1'
+VERSION = '0.1.2'
 
 setup(name='argtools',
       version=VERSION,

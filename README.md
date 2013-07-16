@@ -49,7 +49,7 @@ The argument function has same api as argparse.ArgumentParser.add_argument.
 ### Creating subcommands
 
 ```python
-# examples/sub.py
+# examples/subtest.py
 from argtools import command, argument
 
 @command.add_sub
@@ -65,6 +65,12 @@ def bar(args):
     """
     print 'bar'
 
+
+@command.add_sub(name=baz)  # set different name
+def bar(args):
+    """ This is baz
+    """
+    print 'baz'
 
 if __name__ == '__main__':
     command.run()

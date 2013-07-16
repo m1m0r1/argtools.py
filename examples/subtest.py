@@ -16,5 +16,12 @@ def bar(args):
     print 'bar'
 
 
+@command.add_sub(name='baz')
+def bar(args):
+    """ This is baz
+    """
+    print 'baz'
+
+
 if __name__ == '__main__':
     command.run()

@@ -48,7 +48,7 @@ class Command(object):
         else:
             self._fn = target
         self.__doc__ = target.__doc__
-        self.__name__ = target.__name__
+        self.__name__ = self.__name__ or target.__name__  # self.__name__ is precedent
         self.__module = target.__module__
         return self
 
@@ -141,7 +141,7 @@ class Command(object):
         self._arg_stack.append(('exclusive', args, {'required': required}))
         return self
 
-    def add_sub(self, *targets):
+    def add_sub(self, *targets, **kwds):
         """ Add callable as subcommand
 
         Typical usage:
@@ -149,8 +149,16 @@ class Command(object):
             @argument('file')
             def process(args):
                 print args.file
+
+            @command.add_sub(name='process-args')  # set different name
+            @argument('file')
+            def process(args):
+                print args.file
         """
         new = self.__class__()
+        name = kwds.pop('name', '')
+        if name:
+            new.__name__ = name
 
         for target in targets:
             if not callable(target):
