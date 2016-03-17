@@ -221,6 +221,11 @@ class Command(object):
         for before_run in self._before_runs:
             before_run(args)
 
+        has_func = hasattr(args, 'func')
+        if not has_func:
+            parser.error('too few arguments')
+            sys.exit(1)
+
         return self._run(args.func, args)
 
     def _run(self, fn, args):
