@@ -5,12 +5,12 @@ from setuptools import setup, find_packages
 REQUIRES = ['argparse'] if sys.version_info < (2, 7) else []
 README = os.path.join(os.path.dirname(__file__), 'README.md')
 long_description = open(README).read() + '\n\n'
-VERSION = '0.1.2'
+VERSION = '0.1.3'
 
 setup(name='argtools',
       version=VERSION,
       install_requires=REQUIRES,
-      description='A wrapper of argparse that helps to build command line tools with minimal effort.',
+      description='Building command line tools with minimal effort by decorators',
       long_description=long_description,
       classifiers=['Programming Language :: Python',
                    'Topic :: Software Development :: Libraries :: Python Modules'],

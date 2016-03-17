@@ -230,7 +230,7 @@ class Command(object):
         self.logger.info('start %s', shortname)
         try:
             return fn(args)
-        except IOError, e:
+        except IOError as e:
             if e.errno != 32:  # ignore SIGPIPE
                 raise
         finally:

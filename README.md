@@ -3,8 +3,8 @@ argtools
 
 Description
 -------------------
-Just a wrapper of argparse module (included in Python standard libraries for ver. >= 2.7).
-It helps to build a command line tool with *minimal effort*.
+Just a wrapper of argparse module which is included in Python standard libraries for ver. >= 2.7.
+Argtools helps you to build command line tools with *minimal effort*.
 
 Quick start
 -------------------
