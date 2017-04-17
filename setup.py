@@ -3,7 +3,7 @@ import sys
 from setuptools import setup, find_packages
 
 REQUIRES = ['argparse'] if sys.version_info < (2, 7) else []
-if sys.version_info < 3:
+if sys.version_info[0] < 3:
     REQUIRES.append('six')
 
 README = os.path.join(os.path.dirname(__file__), 'README.md')
