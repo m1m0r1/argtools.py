@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-""" A wrapper of argparse that helps to build command line tools with minimal effort.
+""" An argparse wrapper utility for building command line tools with minimal effort.
 """
 
 __author__ = "Takahiro Mimori <takahiro.mimori@gmail.com>"
@@ -11,6 +11,7 @@ import logging
 import argparse
 import textwrap
 import functools
+from six import string_types
 
 class Error(Exception):
     pass
@@ -114,10 +115,10 @@ class Command(object):
             raise Exception('unknown keyword arguments: %s' % kwds)
 
         # set title, description if args[0] is string
-        if isinstance(args[0], (str, unicode)):
+        if isinstance(args[0], string_types):
             title = args[0]
             args = args[1:]
-            if isinstance(args[0], (str, unicode)):
+            if isinstance(args[0], string_types):
                 description = args[0]
                 args = args[1:]
 
@@ -218,9 +219,6 @@ class Command(object):
                 subcmd._add_parser_rules(subp)
 
         args = parser.parse_args(args=args)
-        for before_run in self._before_runs:
-            before_run(args)
-
         has_func = hasattr(args, 'func')
         if not has_func:
             parser.error('too few arguments')
@@ -230,6 +228,8 @@ class Command(object):
 
     def _run(self, fn, args):
         self._setup_logger(args)
+        for before_run in self._before_runs:
+            before_run(args)
 
         shortname = os.path.basename(sys.argv[0])
         self.logger.info('start %s', shortname)
